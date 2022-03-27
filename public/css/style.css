@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;600&display=swap');
+* {
+  font-family: "League Spartan", "sans-serif";
+}
+body {
+  background-color: rgb(254, 255, 255);
+}
+.tambah-data{
+  width: 50%;
+}
+.halaman-masuk{
+  margin-top: 100px;
+  width: 100%;
+}
+.lambang{
+  margin-top: 0px;
+  width: 100%; 
+}
+.login{
+  width: 45%
+}
+.logo{
+  width: 100%
+}
