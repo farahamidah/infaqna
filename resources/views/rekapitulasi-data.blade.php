@@ -32,6 +32,10 @@
             $total_masuk = 0;
             $total_keluar = 0;
             $saldo = 0;
+            function rupiah($uang) {
+              $hasil_rupiah = "Rp " . number_format($uang,0,',','.');
+              return $hasil_rupiah;
+            }
             ?>  
             @foreach($rekapitulasidata as $index => $i)
             <?php
@@ -43,13 +47,13 @@
             ?>
             <tr>
               <td>{{ $index + $rekapitulasidata->firstItem() }}</td>
-              <td>{{$i->id}}</td>
-              <td>{{$i->tanggal}}</td>
-              <td>{{$i->created_at}}</td>
-              <td>{{$i->keterangan}}</td>
-              <td>{{$i->masuk}}</td>
-              <td>{{$jenis}}</td>
-              <td>{{$i->keluar}}</td>
+              <td>{{ $i->id }}</td>
+              <td>{{ $i->tanggal }}</td>
+              <td>{{ $i->created_at }}</td>
+              <td>{{ $i->keterangan }}</td>
+              <td>{{ rupiah($i->masuk) }}</td>
+              <td>{{ $jenis }}</td>
+              <td>{{ rupiah($i->keluar) }}</td>
 
               
               </tr>
@@ -62,19 +66,19 @@
            @endforeach
            <tr>
              <th colspan="4">Total Infaq Masuk</th>
-             <th>{{ $total_masuk }}</th>
+             <th>{{ rupiah($total_masuk) }}</th>
              <th colspan="2"></th>
            </tr>
            <tr>
            <th colspan="6">Total Infaq Keluar</th>
-             <th>{{ $total_keluar }}</th>
+             <th>{{ rupiah($total_keluar) }}</th>
            </tr>
            <tr>
            <th colspan="5">Total Saldo</th>
              <th colspan="1">
              <?php
              $saldo = $total_masuk - $total_keluar;
-             echo $saldo;
+             echo rupiah($saldo);
              ?>
              </th>
              

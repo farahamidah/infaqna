@@ -2,6 +2,10 @@
 @section('container')
 <?php
    $total=0;
+   function rupiah($uang) {
+     $hasil_rupiah = "Rp " . number_format($uang,0,',','.');
+     return $hasil_rupiah;
+   }
 ?>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h3>Data Infaq Keluar</h3>
@@ -37,11 +41,11 @@
             @foreach($infaqkeluar as $index => $i)
             <tr>
               <td>{{ $index+ $infaqkeluar->firstItem() }}</td>
-              <td>{{$i->id}}</td>
-              <td>{{$i->tanggal}}</td>
-              <td>{{$i->created_at}}</td>
-              <td>{{$i->keterangan}}</td>
-              <td>{{$i->jumlah}}</td>
+              <td>{{ $i->id }}</td>
+              <td>{{ $i->tanggal }}</td>
+              <td>{{ $i->created_at }}</td>
+              <td>{{ $i->keterangan }}</td>
+              <td>{{ rupiah($i->jumlah) }}</td>
               <td>
               <ul class="nav">
               <!-- <a href="{{route('infaqkeluar.show', $i->id)}}" class="btn btn-warning btn-sm mr-2">Show</a>-->
@@ -62,7 +66,7 @@
             @endforeach
            <tr>
                 <th colspan="4">Total Infaq Keluar</th>
-                <th><?= $total?></th>
+                <th><?= rupiah($total) ?></th>
               </tr>
             </table>
             <div class="pull-right">

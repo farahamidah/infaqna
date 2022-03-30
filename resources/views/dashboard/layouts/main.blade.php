@@ -7,7 +7,7 @@
     <title>INFAQNA | {{ $title }}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     
     
     <!-- Custom styles for this template -->
