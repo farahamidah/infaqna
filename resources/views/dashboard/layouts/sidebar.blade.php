@@ -12,7 +12,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('infaqmasuk')? 'active' :''}} text-dark" aria-current="page" href="{{route('infaqmasuk.index')}}">
-              <span data-feather="home"></span>
+              <span data-feather="trending-down"></span>
               <h7 class="text-light">INFAQ MASUK</h7>
             </a>
           </li>   
@@ -27,7 +27,19 @@
               <span data-feather="save"></span>
               <h7 class="text-light">REKAPITULASI</h7>
             </a>
-          </li>        
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('rekapitulasidata')? '' :''}} text-dark" href="{{route('rekapitulasidata.index')}}">
+              <span data-feather="save"></span>
+              <h7 class="text-light">SETORAN</h7>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('rekapitulasidata')? '' :''}} text-dark" href="{{route('rekapitulasidata.index')}}">
+              <span data-feather="save"></span>
+              <h7 class="text-light">PENYETOR</h7>
+            </a>
+          </li>      
         </ul>
       </div>
 </nav>

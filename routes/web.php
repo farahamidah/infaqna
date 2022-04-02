@@ -48,8 +48,4 @@ Route::get('/dashboard/rekapitulasidata-pdf', [RekapitulasiController::class, 'r
 Route::resource('infaqmasuk', MasukController::class)->middleware('auth');
 Route::resource('infaqkeluar', KeluarController::class)->middleware('auth');
 Route::resource('rekapitulasidata', RekapitulasiController::class)->middleware('auth');
-
-
-
-
-
+Route::resource('setoran', SetoranController::class)->middleware('auth');
