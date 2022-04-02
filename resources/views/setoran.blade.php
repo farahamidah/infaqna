@@ -37,7 +37,7 @@
               return $hasil_rupiah;
             }
             ?>  
-            @foreach($rekapitulasidata as $index => $i)
+            @foreach($setoran as $index => $i)
             <?php
             if ($i->masuk !== 0) {
               $jenis = 'masuk';
@@ -46,7 +46,7 @@
             }
             ?>
             <tr>
-              <td>{{ $index + $rekapitulasidata->firstItem() }}</td>
+              <td>{{ $index + $setoran->firstItem() }}</td>
               <td>{{ $i->id }}</td>
               <td>{{ $i->tanggal }}</td>
               <td>{{ $i->created_at }}</td>
@@ -58,7 +58,7 @@
               
               </tr>
            @endforeach
-           @foreach($rekapitulasidataall as $j)
+           @foreach($setoranall as $j)
             <?php
                $total_masuk += $j->masuk;
                $total_keluar += $j->keluar;
@@ -88,7 +88,7 @@
             </div>-->
             </table>
             <div class="pull-right">
-                  {{ $rekapitulasidata->links()}}
+                  {{ $setoran->links()}}
           </div>
           </div>
         </div>

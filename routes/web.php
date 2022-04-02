@@ -11,6 +11,7 @@ use App\Http\Controllers\KeluarController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RekapitulasiController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\SetoranController;
 
 
 

@@ -33,13 +33,7 @@
               <span data-feather="save"></span>
               <h7 class="text-light">SETORAN</h7>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ Request::is('rekapitulasidata')? '' :''}} text-dark" href="{{route('rekapitulasidata.index')}}">
-              <span data-feather="save"></span>
-              <h7 class="text-light">PENYETOR</h7>
-            </a>
-          </li>      
+          </li>    
         </ul>
       </div>
 </nav>
