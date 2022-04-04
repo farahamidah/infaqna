@@ -4,6 +4,7 @@ use App\Http\Controllers\MasukController;
 use App\Models\InfaqMasuk;
 use App\Models\Infaqkeluar;
 use App\Models\RekapitulasiData;
+use App\Models\Setoran;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;

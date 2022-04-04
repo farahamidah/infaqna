@@ -108,7 +108,7 @@ class SetoranController extends Controller
      */
     public function destroy($id)
     {
-        $setoran= Setoran::find($id);
+        $setoran=Setoran::find($id);
         $setoran->delete();
         return redirect()->route('setoran.index');
     }
