@@ -14,9 +14,9 @@
         @csrf
         <ul class="list-group">
         <!-- id <input type="text" name="id" required>  -->
-        Keterangan <input class="mt-1" type="text" name="keterangan" placeholder="keterangan" required>
-        Tanggal <input class="mt-1" type="text" name="tanggal" placeholder="tanggal" onfocus="(this.type='date')" onblur="(this.type='text')" required>
-        Jumlah <input class="mt-1" type="text" name="jumlah" placeholder="jumlah" required>
+        Keterangan <input class="mt-1 form-control" type="text" name="keterangan" placeholder="keterangan" required>
+        Tanggal <input class="mt-1 form-control" type="text" name="tanggal" placeholder="tanggal" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+        Jumlah <input class="mt-1 form-control" type="text" name="jumlah" placeholder="jumlah" required>
         <input type="submit" value="Simpan Data" class="btn btn-success mt-3">
         
         </ul>

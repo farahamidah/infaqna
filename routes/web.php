@@ -51,3 +51,4 @@ Route::resource('infaqmasuk', MasukController::class)->middleware('auth');
 Route::resource('infaqkeluar', KeluarController::class)->middleware('auth');
 Route::resource('rekapitulasidata', RekapitulasiController::class)->middleware('auth');
 Route::resource('setoran', SetoranController::class)->middleware('auth');
+Route::resource('cetak_setoran', [SetoranController::class, 'cetakSetoran'])->middleware('auth');

@@ -11,7 +11,7 @@
     <div class="card card-info card-outline">
     <div class="card-header">
           <div class="card-tools">
-            <a href=" {{ route('setoran.create') }}" target="_blank" class="btn btn-success">Tambah Penyetor</a>
+            <a href=" {{ route('setoran.create') }}" class="btn btn-success">Tambah Penyetor</a>
           </div>
     </div>
       
@@ -41,24 +41,11 @@
               <td>{{ $i->tanggal }}</td>
               <td>{{ $i->jenis_donasi }}</td>
               <td>{{ rupiah($i->total_setoran) }}</td>
-              <td><a href="setoran.create" target="_blank" class="btn btn-warning">Cetak</a></td>
+              <td><a href="cetak_setoran" target="_blank" class="btn btn-warning">Cetak</a></td>
 
               
               </tr>
            @endforeach
-           @foreach($setoranAll as $j)
-            <?php
-               $total_all += $j->total_setoran;
-            ?>
-           @endforeach
-            <tr>
-              <th colspan="4">Total Setoran</th>
-              <th colspan="2">
-                <?php
-                  echo rupiah($total_all);
-                ?>
-              </th>
-            </tr>
           </table>
             <div class="pull-right">
                   {{ $setoran->links()}}

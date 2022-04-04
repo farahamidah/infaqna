@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Setoran;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use PDF;
 
 class SetoranController extends Controller
 
@@ -24,6 +25,19 @@ class SetoranController extends Controller
                 'setoranAll'=>$setoranAll,
                 "title" => "Setoran"
             ]);
+       }
+    Public function cetakSetoran()
+       {
+
+            $setoran=Setoran::all();
+            Return view ('cetak_setoran',[
+                'setoran'=>$setoran,
+                "title" => "Cetak Setoran"
+            ]);
+            view()->share('setoran', $setoran);
+            $pdf = PDF::loadview('cetak_setoran');
+
+            return $pdf->download('kwitansi-setoran.pdf');
        }
 
     /**
@@ -46,12 +60,13 @@ class SetoranController extends Controller
      */
     public function store(Request $request)
     {
-        $idGen = IdGenerator::generate(['table' => 'setorans', 'length' => 5, 'prefix' => date('1')]);
-        InfaqMasuk::create([
+        $idGen = IdGenerator::generate(['table' => 'setorans', 'length' => 5, 'prefix' => date('3')]);
+        Setoran::create([
             'id' => $idGen,
-            'keterangan' => $request->keterangan,
+            'nama' => $request->nama,
             'tanggal' => $request->tanggal,
-            'jumlah' => $request->jumlah
+            'jenis_donasi' => $request->jenis_donasi,
+            'total_setoran' => $request->total,
         ]);
         return redirect()->route('setoran.index')->with('succes', 'Data Berhasil di Input');
     }

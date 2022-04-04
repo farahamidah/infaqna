@@ -15,18 +15,18 @@
             <ul class="list-group">
             <!-- No <input type="text" name="no" required>    -->
             Nama Penyetor
-            <input class="form-control mt-1" type="text" name="keterangan" placeholder="keterangan" required>
+            <input class="form-control mt-1" type="text" name="nama" placeholder="Nama Anda" required>
             Tanggal
-            <input class=" form-control mt-1" type="text" name="tanggal" placeholder="tanggal" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+            <input class=" form-control mt-1" type="text" name="tanggal" placeholder="Tanggal" onfocus="(this.type='date')" onblur="(this.type='text')" required>
             Jenis Donasi
-            <select class="form-control mt-1">
+            <select class="form-control mt-1" name="jenis_donasi">
               <option selected>Choose...</option>
               <option>Zakat</option>
               <option>Infaq</option>
-              <option>Shodaqoh</option>
+              <option>Sedekah</option>
             </select>
-            Jumlah
-            <input class="form-control mt-1" type="text" name="jumlah" placeholder="jumlah" required>
+            Total Setoran
+            <input class="form-control mt-1" type="text" name="total" placeholder="total" required>
 
             <input type="submit" value="Simpan Data" class="btn btn-success mt-3">
             </ul>
