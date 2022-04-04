@@ -127,4 +127,9 @@ class SetoranController extends Controller
         $setoran->delete();
         return redirect()->route('setoran.index');
     }
+    public function print($id)
+    {
+        $setoran=Setoran::find($id);
+        return redirect()->route('cetak-setoran');
+    }
 }
