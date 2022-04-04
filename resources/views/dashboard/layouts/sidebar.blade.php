@@ -29,7 +29,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('rekapitulasidata')? '' :''}} text-dark" href="{{route('rekapitulasidata.index')}}">
+            <a class="nav-link {{ Request::is('setoran')? 'active' :''}} text-dark" href="{{route('setoran.index')}}">
               <span data-feather="save"></span>
               <h7 class="text-light">SETORAN</h7>
             </a>

@@ -11,7 +11,7 @@
     <div class="card card-info card-outline">
     <div class="card-header">
           <div class="card-tools">
-            <a href="setoran.create" target="_blank" class="btn btn-warning">Print PDF</a>
+            <a href="setorans.create" target="_blank" class="btn btn-warning">Print PDF</a>
           </div>
     </div>
       

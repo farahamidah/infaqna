@@ -44,15 +44,15 @@ class SetoranController extends Controller
      */
     public function store(Request $request)
     {
-        $idGen = IdGenerator::generate(['table' => 'infaqmasuk', 'length' => 5, 'prefix' => date('1')]);
-        InfaqMasuk::create([
+        $idGen = IdGenerator::generate(['table' => 'setoran', 'length' => 5, 'prefix' => date('1')]);
+        Setoran::create([
             'id' => $idGen,
             // 'kode_masuk' => $request->kode_infaq,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'jumlah' => $request->jumlah
         ]);
-        return redirect()->route('infaqmasuk.index')->with('succes', 'Data Berhasil di Input');
+        return redirect()->route('setoran.index')->with('succes', 'Data Berhasil di Input');
     }
 
 
@@ -107,7 +107,7 @@ class SetoranController extends Controller
      */
     public function destroy($id)
     {
-        $setoran= Setoran::find($id);
+        $setoran=Setoran::find($id);
         $setoran->delete();
         return redirect()->route('setoran.index');
     }
