@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Setoran extends Model
 {
     use HasFactory;
-    protected $table = 'setoran';
+
+    protected $table = 'setorans';
     protected $fillable = ['id', 'nama', 'tanggal', 'jenis_donasi', 'total_setoran'];
 }
+
+?>

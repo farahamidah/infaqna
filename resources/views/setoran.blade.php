@@ -11,85 +11,58 @@
     <div class="card card-info card-outline">
     <div class="card-header">
           <div class="card-tools">
-            <a href="setoran.create" target="_blank" class="btn btn-warning">Print PDF</a>
+            <a href=" {{ route('setoran.create') }}" target="_blank" class="btn btn-success">Tambah Penyetor</a>
           </div>
     </div>
       
         <div class="card-body">
-        <table class="table table-bordered">          
+          <table class="table table-bordered">          
             <tr>
               <th>No</th> 
-              <th>Kode</th>
+              <th>Nama Penyetor</th>
               <th>Tanggal</th>
-              <th>Waktu</th>
-              <th>Keterangan</th>
-              <th>Masuk</th>
-              <th>Jenis</th>
-              <th>Keluar</th>
+              <th>Jenis Donasi</th>
+              <th>Total Setoran</th>
+              <th>Aksi</th>
             </tr>  
             <?php
             $no = 1;
-            $total_masuk = 0;
-            $total_keluar = 0;
-            $saldo = 0;
+            $total_all = 0;
             function rupiah($uang) {
               $hasil_rupiah = "Rp " . number_format($uang,0,',','.');
               return $hasil_rupiah;
             }
             ?>  
             @foreach($setoran as $index => $i)
-            <?php
-            if ($i->masuk !== 0) {
-              $jenis = 'masuk';
-            }else{
-              $jenis = 'keluar';
-            }
-            ?>
+
             <tr>
               <td>{{ $index + $setoran->firstItem() }}</td>
-              <td>{{ $i->id }}</td>
+              <td>{{ $i->nama }}</td>
               <td>{{ $i->tanggal }}</td>
-              <td>{{ $i->created_at }}</td>
-              <td>{{ $i->keterangan }}</td>
-              <td>{{ rupiah($i->masuk) }}</td>
-              <td>{{ $jenis }}</td>
-              <td>{{ rupiah($i->keluar) }}</td>
+              <td>{{ $i->jenis_donasi }}</td>
+              <td>{{ rupiah($i->total_setoran) }}</td>
+              <td><a href="setoran.create" target="_blank" class="btn btn-warning">Cetak</a></td>
 
               
               </tr>
            @endforeach
-           @foreach($setoranall as $j)
+           @foreach($setoranAll as $j)
             <?php
-               $total_masuk += $j->masuk;
-               $total_keluar += $j->keluar;
-              ?>
+               $total_all += $j->total_setoran;
+            ?>
            @endforeach
-           <tr>
-             <th colspan="4">Total Infaq Masuk</th>
-             <th>{{ rupiah($total_masuk) }}</th>
-             <th colspan="2"></th>
-           </tr>
-           <tr>
-           <th colspan="6">Total Infaq Keluar</th>
-             <th>{{ rupiah($total_keluar) }}</th>
-           </tr>
-           <tr>
-           <th colspan="5">Total Saldo</th>
-             <th colspan="1">
-             <?php
-             $saldo = $total_masuk - $total_keluar;
-             echo rupiah($saldo);
-             ?>
-             </th>
-             
-           </tr>
-           <!--<div class="card-footer">
-            {{ $rekapitulasidata->links()}}
-            </div>-->
-            </table>
+            <tr>
+              <th colspan="4">Total Setoran</th>
+              <th colspan="2">
+                <?php
+                  echo rupiah($total_all);
+                ?>
+              </th>
+            </tr>
+          </table>
             <div class="pull-right">
                   {{ $setoran->links()}}
-          </div>
+            </div>
           </div>
         </div>
       </div>

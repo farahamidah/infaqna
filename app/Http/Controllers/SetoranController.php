@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Setoran;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+
 class SetoranController extends Controller
 
 {
@@ -16,10 +18,10 @@ class SetoranController extends Controller
        {
 
             $setoran=Setoran::paginate(10);
-            $setoranall=Setoran::all();
+            $setoranAll=Setoran::all();
             Return view ('setoran',[
                 'setoran'=>$setoran, 
-                'setoranall'=>$setoranall,
+                'setoranAll'=>$setoranAll,
                 "title" => "Setoran"
             ]);
        }
@@ -31,7 +33,7 @@ class SetoranController extends Controller
      */
     public function create()
     {
-        return view('form_tambah', [
+        return view('tambah_setoran', [
             "title" => "Tambah Setoran"
         ]);
     }
@@ -44,15 +46,14 @@ class SetoranController extends Controller
      */
     public function store(Request $request)
     {
-        $idGen = IdGenerator::generate(['table' => 'infaqmasuk', 'length' => 5, 'prefix' => date('1')]);
+        $idGen = IdGenerator::generate(['table' => 'setorans', 'length' => 5, 'prefix' => date('1')]);
         InfaqMasuk::create([
             'id' => $idGen,
-            // 'kode_masuk' => $request->kode_infaq,
             'keterangan' => $request->keterangan,
             'tanggal' => $request->tanggal,
             'jumlah' => $request->jumlah
         ]);
-        return redirect()->route('infaqmasuk.index')->with('succes', 'Data Berhasil di Input');
+        return redirect()->route('setoran.index')->with('succes', 'Data Berhasil di Input');
     }
 
 
