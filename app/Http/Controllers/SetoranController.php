@@ -28,8 +28,9 @@ class SetoranController extends Controller
        }
     Public function cetakSetoran()
        {
-
             $setoran=Setoran::all();
+            // $setoran=Setoran::find($id);
+            // $setoran=Setoran::where($id);
             Return view ('cetak_setoran',[
                 'setoran'=>$setoran,
                 "title" => "Cetak Setoran"
@@ -80,8 +81,12 @@ class SetoranController extends Controller
      */
     public function show($id)
     {
-        // $setoran=Setoran::where('id',$id)->first();
-        // return view('detailinfaq',['infaqmasuk'=>$infaqmasuk]);
+        $setoran = Setoran::find($id);
+        return view('cetak_setoran', [
+            'setoran'=>$setoran,
+            'title' => 'Cetak Setoran'
+        ]);
+        // return Setoran::find($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -93,6 +98,20 @@ class SetoranController extends Controller
     {
         $setoran=Setoran::find($id);
         return view('form_ubah',[
+            'setoran'=>$setoran,
+            "title" => "Edit Data"
+        ]);
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function tampilan($id)
+    {
+        $setoran=Setoran::find($id);
+        return view('cetak_setoran',[
             'setoran'=>$setoran,
             "title" => "Edit Data"
         ]);

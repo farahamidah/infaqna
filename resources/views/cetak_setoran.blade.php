@@ -14,8 +14,6 @@
 }
 
 #customers th {
-  /* padding-top: 12px;
-  padding-bottom: 12px; */
   text-align: left;
   color: black;
 }
@@ -29,10 +27,10 @@
   width: 25%;
 }
 .td2{
-  width: 5%;
+  width: 2%;
 }
 .td3{
-  width: 45%;
+  width: 48%;
 }
 .td4{
   width: 25%;
@@ -40,7 +38,13 @@
 </style>
 </head>
 <body>
-
+@method('PUT')
+<?php
+   function rupiah($uang) {
+     $hasil_rupiah = "Rp " . number_format($uang,0,',','.');
+     return $hasil_rupiah;
+   }
+?>
 <table id="customers">
   <tr>
     <th colspan="4">KOPERASI MAHASISWA UNIT USAHA UNIDA</th>
@@ -65,23 +69,26 @@
   <tr>
     <td>Telah Terima Dari</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2">{{ $setoran->nama }}</td>
   </tr>
   <tr>
     <td>Total Setoran</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2">{{ rupiah($setoran->total_setoran) }}</td>
   </tr>
   <tr>
     <td>Untuk Setoran</td>
     <td>:</td>
-    <td colspan="2"></td>
+    <td colspan="2">{{ $setoran->jenis_donasi }}</td>
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td></td>
-    <td>Mantingan, 4 April 2022</td>
+    <?php
+      $date='2020-02-16';
+    ?>
+    <td>Mantingan, {{ date("d F Y", strtotime($setoran->tanggal)); }}</td>
   </tr>
   <tr>
     <td><br><br></td>
@@ -98,21 +105,11 @@
     <td class="td3"></td>
     <td class="td4"></td>
   </tr>
-  <!-- @php
-            $no=1;  
-  @endphp
-  @foreach ($setoran as $i)
-  <tr>
-    <td>{{$no++}}</td>
-    <td>{{$i->id}}</td>
-    <td>{{$i->tanggal}}</td>
-    <td>{{$i->jenis_donasi}}</td>
-  @endforeach
-      </tr> -->
 
 </table>
 
 </body>
 </html>
+
 
 

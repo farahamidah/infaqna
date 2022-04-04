@@ -41,7 +41,8 @@
               <td>{{ $i->tanggal }}</td>
               <td>{{ $i->jenis_donasi }}</td>
               <td>{{ rupiah($i->total_setoran) }}</td>
-              <td><a href="{{route('setoran.print', $i->id)}}" target="_blank" class="btn btn-warning">Cetak</a></td>
+              {{-- <td><a href="cetak-setoran" target="_blank" class="btn btn-warning">Cetak</a></td> --}}
+              <td><a href="{{ route('setoran.show', $i->id) }}" target="_blank" class="btn btn-warning">Cetak</a></td>
 
               
               </tr>
